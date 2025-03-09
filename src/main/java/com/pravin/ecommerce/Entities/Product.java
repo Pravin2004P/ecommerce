@@ -1,7 +1,5 @@
 package com.pravin.ecommerce.Entities;
 
-import java.util.Locale.Category;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,7 +10,6 @@ import lombok.Data;
 
 @Entity
 @Data
-
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +20,10 @@ public class Product {
     private Double price;
 
     @ManyToOne
-    @JoinColumn(name = "catagory_Id",nullable = false)
-    private Catagory catagory;
+    @JoinColumn(name = "category_id", nullable = false) // Corrected column name
+    private Catagory category;
+
+    public void setCategory(Catagory category) {
+        this.category = category;
+    }
 }

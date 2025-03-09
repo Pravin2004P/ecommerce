@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.pravin.ecommerce.Entities.Product;
 
-public interface ProductRepository extends JpaRepository <Product,Long>{
-    List<Product> findByCatagoryId(Long catagoryId);
-    
+public interface ProductRepository extends JpaRepository<Product, Long> {
+    List<Product> findByCategoryId(Long categoryId);
 }

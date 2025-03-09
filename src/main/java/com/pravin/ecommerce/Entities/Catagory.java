@@ -2,6 +2,8 @@ package com.pravin.ecommerce.Entities;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -11,7 +13,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 
-
 @Entity
 @Data
 public class Catagory {
@@ -19,6 +20,8 @@ public class Catagory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "catagory",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<Product> products;
 }
