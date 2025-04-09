@@ -1,0 +1,38 @@
+# Application Name
+server:
+  port: 8081
+
+spring:
+  application:
+    name: ecommerce
+
+  # Enable ANSI color output in the terminal
+  output:
+    ansi:
+      enabled: always
+
+  # PostgreSQL Configuration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Ecommerce_Db
+    username: postgres
+    password: 3333
+    driver-class-name: org.postgresql.Driver
+
+  # JPA Hibernate Configurations
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ # Ensure this URL is correct and Eureka server is running
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10 # Optional: Reduce interval for quicker retries
+    lease-expiration-duration-in-seconds: 30 # Optional: Adjust expiration duration
